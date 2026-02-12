@@ -1,4 +1,3 @@
-````md
 # Workout Gamification Backend (Event-Driven Microservices)
 
 A backend system that records user workouts and awards achievements asynchronously using Kafka.  
@@ -59,7 +58,7 @@ From the project root (where `docker-compose.yml` exists):
 
 ```bash
 docker compose up -d
-````
+```
 
 Verify containers are running:
 
@@ -69,7 +68,7 @@ docker ps
 
 (Optional) Kafka UI will be available at:
 
-[http://localhost:8085](http://localhost:8085)
+http://localhost:8085
 
 ---
 
@@ -114,30 +113,24 @@ curl http://localhost:8082/achievements/dylan
 ```
 
 Expected achievements include:
-
-* FIRST_WORKOUT
-* THREE_WORKOUTS
-* CALORIES_1000
-* STREAK_3
+- FIRST_WORKOUT
+- THREE_WORKOUTS
+- CALORIES_1000
+- STREAK_3
 
 ---
 
 ## Key Features
-
-* Event-driven architecture: workout-service publishes Kafka events and achievement-service consumes them asynchronously.
-* Database-per-service design: each microservice owns its own Postgres database.
-* Idempotent processing: achievement-service prevents duplicate event handling using stored event IDs.
-* Flyway migrations: schema is created automatically on startup.
+- Event-driven architecture: workout-service publishes Kafka events and achievement-service consumes them asynchronously.
+- Database-per-service design: each microservice owns its own Postgres database.
+- Idempotent processing: achievement-service prevents duplicate event handling using stored event IDs.
+- Flyway migrations: schema is created automatically on startup.
 
 ---
 
 ## Future Improvements
-
-* Swagger/OpenAPI documentation
-* Outbox pattern for guaranteed event delivery
-* Dead Letter Queue (DLQ) + retry strategy for Kafka consumers
-* Authentication (JWT) and user identity management
-* Containerize services using Dockerfiles
-
-```
-```
+- Swagger/OpenAPI documentation
+- Outbox pattern for guaranteed event delivery
+- Dead Letter Queue (DLQ) + retry strategy for Kafka consumers
+- Authentication (JWT) and user identity management
+- Containerize services using Dockerfiles
